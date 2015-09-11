@@ -565,7 +565,6 @@ checkpoint __IF__ the maximum number of checkpoints exist"""
 #~#~#~#~#~#~#~#
 
 
-@logged("mast.datapower.backups")
 def get_data_file(f):
     _root = os.path.dirname(__file__)
     path = os.path.join(_root, "data", f)
