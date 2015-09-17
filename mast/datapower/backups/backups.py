@@ -266,6 +266,8 @@ the DataPower
         sleep(quiesce_timeout)
 
     t = Timestamp()
+    if destination.endswith("/"):
+        destination = destination.rstrip("/")
     destination = '%s/%s' % (destination, t.timestamp)
 
     kwargs = {'Dir': destination, 'domain': 'default'}
