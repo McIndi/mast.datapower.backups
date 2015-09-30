@@ -140,26 +140,6 @@ Parameters:
 * Domain - The domains to backup (all-domains will backup all domains)
 * out_dir - (NOT NEEDED IN WEB GUI) The directory (local) where you
 would like to store the backup
-
-    >>> print len(APPLIANCES)
-    0
-    >>> result = backups.get_normal_backup(
-    ...     appliances=["localhost"],
-    ...     credentials=["user:pass"],
-    ...     timeout=120,
-    ...     Domain=["default"],
-    ...     comment="Testing",
-    ...     out_dir="tmp",
-    ...     web=False)
-    <BLANKLINE>
-    localhost-default-normalBackup
-    ==============================
-    Verified
-    <BLANKLINE>
-    >>> print result
-    None
-    >>> print len(APPLIANCES[0]._history)
-    1
 """
     logger = make_logger("mast.backups")
     t = Timestamp()
