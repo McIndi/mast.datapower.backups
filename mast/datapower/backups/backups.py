@@ -15,6 +15,7 @@ from time import time, sleep
 from mast.plugins.web import Plugin
 from mast.datapower import datapower
 from mast.timestamp import Timestamp
+from pkg_resources import resource_string
 from mast.logging import make_logger, logged
 import mast.plugin_utils.plugin_utils as util
 from functools import partial, update_wrapper
@@ -608,10 +609,7 @@ checkpoint __IF__ the maximum number of checkpoints exist"""
 
 
 def get_data_file(f):
-    _root = os.path.dirname(__file__)
-    path = os.path.join(_root, "data", f)
-    with open(path, "rb") as fin:
-        return fin.read()
+    return resource_string(__name__, 'docroot/{}'.format(f))
 
 
 class WebPlugin(Plugin):

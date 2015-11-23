@@ -27,12 +27,10 @@ setup(
             'backups = mast.datapower.backups:WebPlugin'
         ]
     },
-    data_files=[
-        ("mast/datapower/backups/data", [
-            "./mast/datapower/backups/docroot/plugin.js",
-            "./mast/datapower/backups/docroot/plugin.css"
-        ])
-    ],
+    package_data={
+        "mast.datapower.backups": ["docroot/*"]
+    },
+    incude_package_data=True,
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 5 - Production/Stable",
