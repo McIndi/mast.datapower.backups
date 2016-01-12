@@ -197,7 +197,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -310,7 +310,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -512,7 +512,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -587,7 +587,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -648,7 +648,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -708,7 +708,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -769,7 +769,7 @@ or one set for each appliance. Credentials should be in the form
 if multiple are provided. When referencing multiple appliances with
 multiple credentials there must be a one to one correspondence of 
 credentials to appliances:
-[appliance1 [appliance2...]] [credential1 [credential2...]] 
+`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
