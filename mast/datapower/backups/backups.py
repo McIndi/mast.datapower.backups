@@ -530,7 +530,7 @@ off when sending commands to the appliances.
 the secure backup was encrypted
 * `-l, --location`: The location on the appliances where the SecureBackup
 resides (This means that you will have to upload the secure backup
-if you got it from MAST external to the appliance)
+if you got it from MAST, external to the appliance)
 * `-v, --validate-only`: If specified then the appliances will only attemp to
 validate the backup instead of actually restoring it
 * `-w, --web`: __For Internel Use Only, will be removed in future versions.
