@@ -94,16 +94,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]`
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]`
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -188,16 +189,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -206,6 +208,8 @@ halt if a timeout is reached.
 * `-n, --no-check-hostname`: If specified SSL verification will be turned
 off when sending commands to the appliances.
 * `-D, --Domain`: The domains to backup (all-domains will backup all domains)
+To spcify multiple domains,
+use multiple entries of the form `[-D domain1 [-D domain2...]]`
 * `-C, --comment`: The comment to add to the backup
 * `-o, --out-dir`: (NOT NEEDED IN WEB GUI) The directory (local) where you
 would like to store the backup
@@ -301,16 +305,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]`
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]`
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -503,16 +508,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -578,16 +584,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -639,16 +646,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -699,16 +707,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -760,16 +769,17 @@ Parameters:
 or alias(es) of the appliances you would like to affect. For details
 on configuring environments please see the comments in
 `environments.conf` located in `$MAST_HOME/etc/default`. For details
-on configuring aliases please see the comments in `hosts.conf` located
-in `$MAST_HOME/etc/default`.
+on configuring aliases, please see the comments in `hosts.conf` located in
+`$MAST_HOME/etc/default`. To pass multiple arguments to this parameter,
+use multiple entries of the form `[-a appliance1 [-a appliance2...]]`
 * `-c, --credentials`: The credentials to use for authenticating to the
 appliances. Should be either one set to use for all appliances
 or one set for each appliance. Credentials should be in the form
-`username:password` and should be provided in a space-separated list,
-if multiple are provided. When referencing multiple appliances with
-multiple credentials, there must be a one-to-one correspondence of 
-credentials to appliances:
-`[appliance1 [appliance2...]] [credential1 [credential2...]]` 
+`username:password`. To pass multiple credentials to this parameter, use
+multiple entries of the form `[-c credential1 [-c credential2...]]`. 
+When referencing multiple appliances with multiple credentials, 
+there must be a one-to-one correspondence of credentials to appliances:
+`[-a appliance1 [-a appliance2...]] [-c credential1 [-c credential2...]]` 
 If you would prefer to not use plain-text passwords, 
 you can use the output of `$ mast-system xor <username:password>`.
 * `-t, --timeout`: The timeout in seconds to wait for a response from
@@ -777,7 +787,8 @@ an appliance for any single request. __NOTE__ Program execution may
 halt if a timeout is reached.
 * `-n, --no-check-hostname`: If specified SSL verification will be turned
 off when sending commands to the appliances.
-* `-D, --Domain`: a list of domains to set checkpoints in
+* `-D, --Domain`: Domains to set checkpoints in. To spcify multiple domains,
+use multiple entries of the form `[-D domain1 [-D domain2...]]`
 * `-C, --comment`: The comment to use for the checkpoint (will also be used to
 build the checkpoint name)
 * `-N, --no-remove-oldest`: If specified this script will attempt to
