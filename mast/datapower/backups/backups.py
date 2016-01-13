@@ -1,4 +1,4 @@
-"""==========================================================
+"""
 mast backups:
 
 A set of tools for automating routine backup/checkpoint
@@ -6,7 +6,7 @@ related tasks associated with IBM DataPower appliances.
 
 Copyright 2016, All Rights Reserved
 McIndi Solutions LLC
-=========================================================="""
+"""
 import os
 import flask
 import zipfile
