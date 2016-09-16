@@ -180,6 +180,7 @@ def get_normal_backup(appliances=[],
                       Domain=[],
                       comment="",
                       out_dir='tmp',
+                      individual=False,
                       web=False):
     """Performs a normal backup of the specified domain.
 
@@ -213,6 +214,8 @@ use multiple entries of the form `[-D domain1 [-D domain2...]]`
 * `-C, --comment`: The comment to add to the backup
 * `-o, --out-dir`: (NOT NEEDED IN WEB GUI) The directory (local) where you
 would like to store the backup
+* `-I, --individual`: If specified and all-domains is specified as --Domain
+then backup each domain individually instead of "all-domains"
 * `-w, --web`: __For Internel Use Only, will be removed in future versions.
 DO NOT USE.__"""
     logger = make_logger("mast.backups")
@@ -230,11 +233,11 @@ DO NOT USE.__"""
     Domain = list(set(Domain))
 
     results = {}
-    for domain in Domain:
+    if not individual:
         logger.info(
             "Attempting to retrieve normal backup from "
-            "{} in {} domain".format(str(env.appliances), domain))
-        kwargs = {'domain': domain, 'comment': comment}
+            "{} in {} domain".format(str(env.appliances), Domain))
+        kwargs = {'domains': Domain, 'comment': comment}
         _results = env.perform_async_action('get_normal_backup', **kwargs)
         logger.debug("backups retrieved, check file for contents")
 
@@ -243,7 +246,6 @@ DO NOT USE.__"""
                 out_dir,
                 hostname,
                 "NormalBackup",
-                domain,
                 t.timestamp)
             os.makedirs(directory)
             filename = os.path.join(
@@ -251,7 +253,7 @@ DO NOT USE.__"""
                 '%s-%s-%s.zip' % (
                     t.timestamp,
                     hostname,
-                    domain))
+                    "_".join(Domain)))
 
             logger.debug(
                 "Writing backup for {} to {}".format(
@@ -262,13 +264,53 @@ DO NOT USE.__"""
             if _verify_zip(filename):
                 logger.info(
                     "backup for {} in {} domain verified".format(
-                        hostname, domain))
-                results[hostname + "-" + domain + "-normalBackup"] = "Verified"
+                        hostname, str(Domain)))
+                results[hostname + "-" + "_".join(Domain) + "-normalBackup"] = "Verified"
             else:
                 logger.info(
                     "backup for {} in {} domain corrupt".format(
-                        hostname, domain))
-                results[hostname + "-" + domain + "-normalBackup"] = "Corrupt"
+                        hostname, str(Domain)))
+                results[hostname + "-" + "_".join(Domain) + "-normalBackup"] = "Corrupt"
+    else:
+        for domain in Domain:
+            logger.info(
+                "Attempting to retrieve normal backup from "
+                "{} in {} domain".format(str(env.appliances), domain))
+            kwargs = {'domains': domain, 'comment': comment}
+            _results = env.perform_async_action('get_normal_backup', **kwargs)
+            logger.debug("backups retrieved, check file for contents")
+
+            for hostname, backup in _results.items():
+                directory = os.path.join(
+                    out_dir,
+                    hostname,
+                    "NormalBackup",
+                    t.timestamp)
+                if not os.path.exists(directory):
+                    os.makedirs(directory)
+                filename = os.path.join(
+                    directory,
+                    '%s-%s-%s.zip' % (
+                        t.timestamp,
+                        hostname,
+                        domain))
+
+                logger.debug(
+                    "Writing backup for {} to {}".format(
+                        hostname, filename))
+                with open(filename, 'wb') as fout:
+                    fout.write(backup)
+
+                if _verify_zip(filename):
+                    logger.info(
+                        "backup for {} in {} domain verified".format(
+                            hostname, domain))
+                    results[hostname + "-" + domain + "-normalBackup"] = "Verified"
+                else:
+                    logger.info(
+                        "backup for {} in {} domain corrupt".format(
+                            hostname, domain))
+                    results[hostname + "-" + domain + "-normalBackup"] = "Corrupt"
 
     if web:
         return util.render_results_table(results), util.render_history(env)
