@@ -226,6 +226,9 @@ DO NOT USE.__"""
         credentials,
         timeout,
         check_hostname=check_hostname)
+    
+    if not Domain:
+        raise ValueError("Must provide one or more domains including 'all-domains'")
 
     if isinstance(Domain, basestring):
         Domain = [Domain]
