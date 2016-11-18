@@ -856,7 +856,18 @@ DO NOT USE.__"""
         rows = []
 
     for appliance in env.appliances:
-        for domain in Domain:
+        if not web:
+            print appliance.hostname
+        _domains = Domain
+        print Domain
+        print _domains
+        if "all-domains" in _domains:
+            _domains = appliance.domains
+        print _domains
+        for domain in _domains:
+            print domain
+            if not web:
+                print "\t", domain
             name = '{0}-{1}-{2}'.format(comment, domain, t.timestamp)
             logger.debug(
                 "Attempting to set checkpoint {} on {} in {} domain".format(
@@ -875,6 +886,11 @@ DO NOT USE.__"""
             kwargs = {'domain': domain, 'ChkName': name}
             resp = appliance.SaveCheckpoint(**kwargs)
             logger.debug("Response received: {}".format(resp))
+            if not web:
+                if resp:
+                    print "\t\tSuccessful"
+                else:
+                    print "\t\tFailed"
             if web:
                 if resp:
                     rows.append((
